@@ -2,20 +2,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS GAMING</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXUS GAMING</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #090d18;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #11182a;
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #263451;
+}
+
+.logo {
+  color: #00d9ff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg,#101b3b,#25104b);
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.hero span {
+  color: #00d9ff;
+}
+
+.hero p {
+  color: #c4cce0;
+  margin-bottom: 25px;
+}
+
+button {
+  background: #00cfff;
+  color: #07111d;
+  border: none;
+  padding: 13px 25px;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.games {
+  padding: 55px 7%;
+}
+
+.games h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #151e32;
+  padding: 25px;
+  border: 1px solid #293b5c;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #00d9ff;
+  margin: 15px 0;
+}
+
+.card p {
+  color: #bbc5d9;
+  margin-bottom: 18px;
+}
+
+.emoji {
+  font-size: 55px;
+}
+
+footer {
+  background: #11182a;
+  padding: 25px;
+  text-align: center;
+  color: #8996ae;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>NEXUS GAMING</h1>
+<header>
+  <div class="logo">NEXUS GAMING</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+  </nav>
+</header>
 
-    <h2>Welcome to the Gaming World!</h2>
+<section class="hero" id="home">
+  <h1>WELCOME TO <span>NEXUS GAMING</span></h1>
+  <p>Discover Games. Explore Adventures. Level Up!</p>
+  <button onclick="document.getElementById('games').scrollIntoView()">
+    EXPLORE GAMES
+  </button>
+</section>
 
-    <p>Discover games. Explore adventures. Level up!</p>
+<section class="games" id="games">
+  <h2>POPULAR GAMES</h2>
 
-    <button>Explore Games</button>
+  <div class="game-grid">
+
+    <div class="card">
+      <div class="emoji">⛏️</div>
+      <h3>Minecraft</h3>
+      <p>Build, explore and survive in your own world.</p>
+      <button onclick="window.open('https://www.minecraft.net/','_blank')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🎮</div>
+      <h3>Roblox</h3>
+      <p>Play millions of experiences and adventures.</p>
+      <button onclick="window.open('https://www.roblox.com/','_blank')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">⚔️</div>
+      <h3>Mobile Legends</h3>
+      <p>Join the battle and experience 5v5 action.</p>
+      <button onclick="window.open('https://m.mobilelegends.com/','_blank')">Explore</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🔫</div>
+      <h3>Call of Duty Mobile</h3>
+      <p>Experience exciting multiplayer action.</p>
+      <button onclick="window.open('https://www.callofduty.com/mobile','_blank')">Explore</button>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 NEXUS GAMING | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
+
