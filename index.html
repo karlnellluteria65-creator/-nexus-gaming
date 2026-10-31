@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEXUS GAMING</title>
+
+<title>NEXUS GAMING | Game Hub</title>
 
 <style>
 * {
@@ -13,113 +13,216 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: #080d18;
-  color: white;
+  background: #070b14;
+  color: #ffffff;
   font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 header {
-  background: #101a2d;
-  padding: 20px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 17, 32, 0.97);
+  border-bottom: 1px solid #203755;
+  padding: 16px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
-  border-bottom: 1px solid #243b5c;
+  gap: 12px;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #00d9ff;
+  font-size: 23px;
+  font-weight: 900;
+  color: #00e5ff;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
-  color: white;
+  color: #dce7f7;
   text-decoration: none;
-  margin-left: 15px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: #00e5ff;
 }
 
 .hero {
+  padding: 90px 20px;
   text-align: center;
-  padding: 75px 20px;
-  background: linear-gradient(135deg,#101d3c,#29104d);
+  background:
+    radial-gradient(ellipse at top, #173d68 0%, transparent 65%),
+    linear-gradient(135deg, #0b1427, #170c2d);
+  border-bottom: 1px solid #1c3452;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid #00d9ff;
+  border-radius: 30px;
+  color: #00e5ff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
 .hero h1 {
-  font-size: clamp(30px,6vw,48px);
-  margin-bottom: 15px;
+  font-size: clamp(30px, 7vw, 56px);
+  line-height: 1.2;
+  margin-bottom: 18px;
 }
 
-.hero span {
-  color: #00d9ff;
+.hero h1 span {
+  color: #00e5ff;
+  text-shadow: 0 0 25px #00d9ff55;
 }
 
 .hero p {
-  color: #c5d0e5;
-  margin-bottom: 25px;
+  color: #b7c7df;
+  max-width: 550px;
+  margin: 0 auto 28px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 13px 22px;
+  background: #00d9ff;
+  color: #06111c;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
 }
 
 .search-area {
   text-align: center;
-  padding: 40px 20px 15px;
+  padding: 55px 20px 20px;
+}
+
+.section-label {
+  color: #00d9ff;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
 }
 
 .search-area h2 {
-  margin-bottom: 20px;
+  font-size: clamp(23px, 4vw, 32px);
+  margin-bottom: 22px;
 }
 
 #search {
   width: 100%;
-  max-width: 450px;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #00d9ff;
-  background: #111c30;
+  max-width: 500px;
+  padding: 16px;
+  border: 1px solid #294568;
+  border-radius: 10px;
+  background: #101a2d;
   color: white;
   font-size: 16px;
   outline: none;
 }
 
+#search:focus {
+  border-color: #00d9ff;
+  box-shadow: 0 0 15px #00d9ff22;
+}
+
 .games {
-  padding: 35px 7% 65px;
+  padding: 25px 7% 75px;
 }
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
 }
 
 .card {
-  background: #131f35;
-  border: 1px solid #253d60;
-  border-radius: 12px;
+  background: #101a2b;
+  border: 1px solid #233854;
+  border-radius: 14px;
   overflow: hidden;
-  transition: 0.3s;
+  transition: transform 0.25s, border-color 0.25s;
 }
 
 .card:hover {
   transform: translateY(-6px);
   border-color: #00d9ff;
-  box-shadow: 0 0 20px #00d9ff33;
+  box-shadow: 0 10px 35px #00d9ff12;
 }
 
 .cover {
-  height: 170px;
-  background: linear-gradient(135deg,#182e55,#39205d);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 180px;
+  position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #152e50, #302052);
 }
 
 .cover img {
+  position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 15px;
+  background: #101a2b;
+}
+
+.cover-fallback {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 48px;
+}
+
+.cover-fallback small {
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.minecraft {
+  background: linear-gradient(135deg, #284d36, #101a2b);
+}
+
+.roblox {
+  background: linear-gradient(135deg, #5b1b24, #101a2b);
+}
+
+.mlbb {
+  background: linear-gradient(135deg, #193d75, #101a2b);
+}
+
+.codm {
+  background: linear-gradient(135deg, #59451b, #101a2b);
 }
 
 .card-info {
@@ -128,51 +231,82 @@ nav a {
 
 .card h3 {
   color: #00d9ff;
-  margin-bottom: 10px;
+  font-size: 19px;
+  margin-bottom: 8px;
 }
 
 .card p {
-  color: #bac7dc;
+  color: #b6c5dc;
   font-size: 14px;
-  line-height: 1.5;
-  min-height: 42px;
-  margin-bottom: 15px;
+  min-height: 65px;
+  margin-bottom: 18px;
 }
 
-button {
-  background: #00d9ff;
-  color: #06111c;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: white;
+.card button {
+  width: 100%;
 }
 
 .empty {
   display: none;
   text-align: center;
-  color: #aabbd4;
-  padding: 35px;
+  color: #b6c5dc;
+  padding: 35px 10px;
+}
+
+.about {
+  padding: 50px 7%;
+  text-align: center;
+  background: #0c1423;
+  border-top: 1px solid #203755;
+}
+
+.about h2 {
+  color: #00d9ff;
+  margin-bottom: 12px;
+}
+
+.about p {
+  color: #b6c5dc;
+  max-width: 600px;
+  margin: auto;
 }
 
 footer {
-  background: #101a2d;
+  background: #080d17;
   text-align: center;
-  padding: 25px;
-  color: #899bb5;
+  padding: 25px 15px;
+  color: #8192ac;
+  font-size: 13px;
+  border-top: 1px solid #203755;
 }
 
-@media(max-width:480px) {
+@media (max-width: 480px) {
   header {
     justify-content: center;
+    padding: 15px;
   }
-  nav a {
-    margin: 0 8px;
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .hero {
+    padding: 65px 18px;
+  }
+
+  .games {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cover {
+    height: 200px;
   }
 }
 </style>
@@ -182,26 +316,38 @@ footer {
 
 <header>
   <div class="logo">NEXUS GAMING</div>
+
   <nav>
     <a href="#home">Home</a>
     <a href="#games">Games</a>
+    <a href="#about">About</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
-  <h1>WELCOME TO <span>NEXUS GAMING</span></h1>
-  <p>Discover Games. Explore Adventures. Level Up!</p>
+  <div class="badge">YOUR GAMING DESTINATION</div>
+
+  <h1>WELCOME TO<br><span>NEXUS GAMING</span></h1>
+
+  <p>
+    Discover amazing games, explore new adventures,
+    and find your next favorite gaming experience.
+  </p>
+
   <button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
-    EXPLORE GAMES
+    EXPLORE GAMES ↓
   </button>
 </section>
 
 <section class="search-area" id="games">
-  <h2>FIND YOUR FAVORITE GAME</h2>
+  <div class="section-label">GAME LIBRARY</div>
+  <h2>Find Your Favorite Game</h2>
+
   <input
     type="search"
     id="search"
-    placeholder="🔍 Search games..."
+    placeholder="Search Minecraft, Roblox, CODM..."
+    aria-label="Search games"
     oninput="searchGames()"
   >
 </section>
@@ -209,53 +355,93 @@ footer {
 <section class="games">
   <div class="game-grid" id="gameGrid">
 
-    <div class="card" data-name="minecraft">
-      <div class="cover">
-        <img src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
-        alt="Minecraft cover">
+    <article class="card" data-name="minecraft">
+      <div class="cover minecraft">
+        <div class="cover-fallback">
+          ⛏️
+          <small>MINECRAFT</small>
+        </div>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+          alt="Minecraft cover"
+          onerror="this.style.display='none'"
+        >
       </div>
+
       <div class="card-info">
         <h3>Minecraft</h3>
-        <p>Build, explore and survive in your own block world.</p>
-        <button onclick="window.open('https://www.minecraft.net/','_blank')">Explore</button>
+        <p>Build, explore, craft, and survive in an endless block world.</p>
+        <button onclick="openGame('https://www.minecraft.net/')">
+          EXPLORE GAME
+        </button>
       </div>
-    </div>
+    </article>
 
-    <div class="card" data-name="roblox">
-      <div class="cover">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Roblox_Logo.svg"
-        alt="Roblox logo">
+    <article class="card" data-name="roblox">
+      <div class="cover roblox">
+        <div class="cover-fallback">
+          🎮
+          <small>ROBLOX</small>
+        </div>
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Roblox_Logo.svg"
+          alt="Roblox logo"
+          onerror="this.style.display='none'"
+        >
       </div>
+
       <div class="card-info">
         <h3>Roblox</h3>
-        <p>Discover millions of creative games and experiences.</p>
-        <button onclick="window.open('https://www.roblox.com/','_blank')">Explore</button>
+        <p>Discover creative worlds, fun challenges, and games made by players.</p>
+        <button onclick="openGame('https://www.roblox.com/')">
+          EXPLORE GAME
+        </button>
       </div>
-    </div>
+    </article>
 
-    <div class="card" data-name="mobile legends mlbb">
-      <div class="cover">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mobile_Legends_Bang_Bang_logo.png"
-        alt="Mobile Legends">
+    <article class="card" data-name="mobile legends mlbb">
+      <div class="cover mlbb">
+        <div class="cover-fallback">
+          ⚔️
+          <small>MOBILE LEGENDS</small>
+        </div>
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Mobile_Legends_Bang_Bang_logo.png"
+          alt="Mobile Legends logo"
+          onerror="this.style.display='none'"
+        >
       </div>
+
       <div class="card-info">
         <h3>Mobile Legends</h3>
-        <p>Experience exciting 5v5 multiplayer battles.</p>
-        <button onclick="window.open('https://www.mobilelegends.com/','_blank')">Explore</button>
+        <p>Team up with friends and battle in exciting 5v5 matches.</p>
+        <button onclick="openGame('https://www.mobilelegends.com/')">
+          EXPLORE GAME
+        </button>
       </div>
-    </div>
+    </article>
 
-    <div class="card" data-name="call of duty cod mobile">
-      <div class="cover">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Call_of_Duty_Mobile_logo.png"
-        alt="Call of Duty Mobile">
+    <article class="card" data-name="call of duty mobile codm">
+      <div class="cover codm">
+        <div class="cover-fallback">
+          🎯
+          <small>CALL OF DUTY</small>
+        </div>
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Call_of_Duty_Mobile_logo.png"
+          alt="Call of Duty Mobile logo"
+          onerror="this.style.display='none'"
+        >
       </div>
+
       <div class="card-info">
         <h3>Call of Duty Mobile</h3>
-        <p>Explore multiplayer and battle royale game modes.</p>
-        <button onclick="window.open('https://www.callofduty.com/mobile','_blank')">Explore</button>
+        <p>Jump into action-packed multiplayer matches and battle royale.</p>
+        <button onclick="openGame('https://www.callofduty.com/mobile')">
+          EXPLORE GAME
+        </button>
       </div>
-    </div>
+    </article>
 
   </div>
 
@@ -264,25 +450,48 @@ footer {
   </div>
 </section>
 
+<section class="about" id="about">
+  <h2>ABOUT NEXUS GAMING</h2>
+  <p>
+    Your place to discover popular games and explore new gaming adventures.
+    Search for a game and visit its official website to learn more.
+  </p>
+</section>
+
 <footer>
   <p>© 2026 NEXUS GAMING | All Rights Reserved</p>
+  <p>Made for gamers, by gamers.</p>
 </footer>
 
 <script>
 function searchGames() {
-  const query = document.getElementById("search").value.toLowerCase();
+  const query = document.getElementById("search").value
+    .trim()
+    .toLowerCase();
+
   const cards = document.querySelectorAll(".card");
   let found = 0;
 
-  cards.forEach(card => {
-    const name = card.dataset.name;
-    const visible = name.includes(query);
-    card.style.display = visible ? "block" : "none";
-    if (visible) found++;
+  cards.forEach(function(card) {
+    const name = card.dataset.name.toLowerCase();
+    const description = card.querySelector("p").textContent.toLowerCase();
+
+    const matches =
+      name.includes(query) || description.includes(query);
+
+    card.style.display = matches ? "" : "none";
+
+    if (matches) {
+      found++;
+    }
   });
 
   document.getElementById("empty").style.display =
     found === 0 ? "block" : "none";
+}
+
+function openGame(url) {
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 </script>
 
